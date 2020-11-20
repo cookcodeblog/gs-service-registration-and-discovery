@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: discovery-service
+    app.kubernetes.io/component: discovery-service
+    app.kubernetes.io/instance: discovery-service
+    app.kubernetes.io/part-of: discovery-service-app
+  name: discovery-service
+spec:
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    name: auto-discover
+  sessionAffinity: None
+  type: ClusterIP
