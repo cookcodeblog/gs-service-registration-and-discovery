@@ -38,14 +38,21 @@ oc login
 oc new-project william-spring
 ```
 
-Create a service:
 
-```bash
-oc apply -f ./openshift/service.yaml
+
+Use OpenShift S2I build to build eureka-client.
+
+```txt
+Git Repository: https://github.com/cookcodeblog/gs-service-registration-and-discovery
+Context Dir: /eureka-client
+Application Name: eureka-client-app
+Name: eureka-client
+
+Choose deployment
+Check create service
 ```
 
-Check service details:
+Admin / Network / Service / Pods
 
-```bash
-oc describe service discovery-service
-```
+Modify deployment, edit Pod count from 1 to 2.
+
